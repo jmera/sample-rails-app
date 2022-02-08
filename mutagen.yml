@@ -11,3 +11,9 @@ forward:
   web:
     source: tcp:localhost:3000
     destination: docker.remote:tcp::3000
+
+afterCreate:
+  - docker-compose up --detach
+
+beforeTerminate:
+  - docker-compose down
