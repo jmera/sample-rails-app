@@ -14,6 +14,7 @@ services:
       - pg
     volumes:
       - .:/usr/src/app/
+      - gem_data:/usr/local/bundle/
     ports:
       - 3000:3000
   pg:
@@ -23,3 +24,5 @@ services:
       POSTGRES_PASSWORD: password
       POSTGRES_USER: web
       POSTGRES_DB: app_development
+volumes:
+  gem_data:
