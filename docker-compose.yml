@@ -13,7 +13,7 @@ services:
     depends_on:
       - pg
     volumes:
-      - .:/usr/src/app/
+      - /usr/src/app/:/usr/src/app/
       - gem_data:/usr/local/bundle/
     ports:
       - 3000:3000
