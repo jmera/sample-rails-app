@@ -1,0 +1,8 @@
+sync:
+  code:
+    alpha: "."
+    beta: "docker.remote:/usr/src/app/"
+    mode: "two-way-resolved"
+    ignore:
+      paths: [ "/log/", "/tmp/" ]
+      vcs: true
