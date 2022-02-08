@@ -1,0 +1,25 @@
+version: "3.8"
+services:
+  web:
+    image: ruby:3.0
+    container_name: web
+    working_dir: /usr/src/app/
+    command:
+      - "/bin/sh"
+      - "-c"
+      - "bundle install && exec bin/rails server --binding 0.0.0.0 --port 3000"
+    environment:
+      DATABASE_URL: postgres://web:password@pg/app_development
+    depends_on:
+      - pg
+    volumes:
+      - .:/usr/src/app/
+    ports:
+      - 3000:3000
+  pg:
+    image: postgres:14.1
+    container_name: pg
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: web
+      POSTGRES_DB: app_development
