@@ -6,3 +6,8 @@ sync:
     ignore:
       paths: [ "/log/", "/tmp/" ]
       vcs: true
+
+forward:
+  web:
+    source: tcp:localhost:3000
+    destination: docker.remote:tcp::3000
